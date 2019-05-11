@@ -14,3 +14,4 @@
 .externalNativeBuild
 remote/build
 data/build
+domain/build
