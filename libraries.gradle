@@ -34,6 +34,6 @@ ext {
             robolectric        : "4.0.2",
             googleTruth        : "0.42",
             uiAutomator        : "2.2.0",
-            mockito            : "2.27.0"
+            mockk              : "1.9.3"
     ]
 }
