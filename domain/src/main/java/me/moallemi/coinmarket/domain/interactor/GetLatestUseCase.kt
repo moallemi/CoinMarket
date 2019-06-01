@@ -12,9 +12,11 @@ class GetLatestUseCase(
     useCaseExecutorThread: UseCaseExecutorThread,
     postExecutorThread: PostExecutorThread
 ) :
-    SingleUseCase<Nothing, List<CurrencyInfo>>(useCaseExecutorThread, postExecutorThread) {
+    SingleUseCase<GetLatestUseCase.None, List<CurrencyInfo>>(useCaseExecutorThread, postExecutorThread) {
 
-    override fun buildSingle(params: Nothing): Single<List<CurrencyInfo>> {
+    override fun buildSingle(params: None): Single<List<CurrencyInfo>> {
         return coinMarketRepository.getLatest()
     }
+
+    class None
 }
