@@ -7,6 +7,7 @@ import me.moallemi.coinmarket.data.repository.CoinMarketRepositoryImpl
 import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
 import me.moallemi.coinmarket.remote.api.CoinMarketService
 import me.moallemi.coinmarket.remote.datasource.CoinMarketRemoteDataSourceImpl
+import me.moallemi.coinmarket.ui.browse.BrowseFragment
 
 @Module
 class BrowseModule {

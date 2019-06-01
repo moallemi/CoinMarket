@@ -9,7 +9,7 @@ import me.moallemi.coinmarket.domain.executer.PostExecutorThread
 import me.moallemi.coinmarket.domain.executer.UseCaseExecutorThread
 
 @Module
-class AppModule(val app: CoinMarketApp) {
+class AppModule {
 
     @Provides
     fun provideContext(app: CoinMarketApp) = app.applicationContext

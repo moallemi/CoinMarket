@@ -5,17 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_browse.*
 import me.moallemi.coinmarket.R
-import me.moallemi.coinmarket.app.CoinMarketApp
 import me.moallemi.coinmarket.domain.interactor.GetLatestUseCase
 import javax.inject.Inject
 
-class BrowseFragment : Fragment() {
+class BrowseFragment : DaggerFragment() {
 
     lateinit var browseViewModel: BrowseViewModel
     private val adapter by lazy { BrowseAdapter() }
@@ -29,8 +28,6 @@ class BrowseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        CoinMarketApp.appComponent.inject(this)
 
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.adapter = adapter
