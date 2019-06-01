@@ -6,8 +6,9 @@ import me.moallemi.coinmarket.domain.executer.UseCaseExecutorThread
 import me.moallemi.coinmarket.domain.interactor.base.SingleUseCase
 import me.moallemi.coinmarket.domain.model.CurrencyInfo
 import me.moallemi.coinmarket.domain.repository.CoinMarketRepository
+import javax.inject.Inject
 
-class GetLatestUseCase(
+class GetLatestUseCase @Inject constructor(
     private val coinMarketRepository: CoinMarketRepository,
     useCaseExecutorThread: UseCaseExecutorThread,
     postExecutorThread: PostExecutorThread

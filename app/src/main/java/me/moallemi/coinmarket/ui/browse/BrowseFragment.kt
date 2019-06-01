@@ -11,12 +11,17 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_browse.*
 import me.moallemi.coinmarket.R
+import me.moallemi.coinmarket.app.CoinMarketApp
 import me.moallemi.coinmarket.domain.interactor.GetLatestUseCase
+import javax.inject.Inject
 
 class BrowseFragment : Fragment() {
 
     lateinit var browseViewModel: BrowseViewModel
-    val adapter by lazy { BrowseAdapter() }
+    private val adapter by lazy { BrowseAdapter() }
+
+    @Inject
+    lateinit var getLatestUseCase: GetLatestUseCase
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_browse, container, false)
@@ -25,10 +30,12 @@ class BrowseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        CoinMarketApp.appComponent.inject(this)
+
         recyclerView.layoutManager = LinearLayoutManager(view.context)
         recyclerView.adapter = adapter
 
-        val browseViewModelFactory = BrowseViewModelFactory()
+        val browseViewModelFactory = BrowseViewModelFactory(getLatestUseCase)
         browseViewModel = ViewModelProviders.of(this, browseViewModelFactory).get(BrowseViewModel::class.java)
         browseViewModel.items.observe(this, Observer { items ->
             adapter.items = items

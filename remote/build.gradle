@@ -6,10 +6,10 @@ dependencies {
 
     implementation project(":data")
 
-    implementation "com.squareup.retrofit2:retrofit:$libraries.retrofit"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$libraries.retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
-    implementation "com.squareup.okhttp3:okhttp:$libraries.okHttp"
+    api "com.squareup.retrofit2:retrofit:$libraries.retrofit"
+    api "com.squareup.retrofit2:adapter-rxjava2:$libraries.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$libraries.retrofit"
+    api "com.squareup.okhttp3:okhttp:$libraries.okHttp"
 
     testImplementation "junit:junit:$testLibraries.junit"
     testImplementation "io.mockk:mockk:$testLibraries.mockk"

@@ -8,6 +8,10 @@ import me.moallemi.coinmarket.ui.base.BaseViewModel
 
 class BrowseViewModel(private val getLatestUseCase: GetLatestUseCase) : BaseViewModel() {
 
+    init {
+        useCases += getLatestUseCase
+    }
+
     private val _items = MutableLiveData<List<CurrencyInfo>>()
     val items: LiveData<List<CurrencyInfo>> = _items
 
